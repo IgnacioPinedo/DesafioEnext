@@ -1,5 +1,9 @@
 package desafio.enext;
 
+import java.util.List;
+
+import desafio.enext.models.Game;
+
 public class Main {
 	
 	public static void main(String[] args) 
@@ -8,5 +12,7 @@ public class Main {
 
 		String[] parsedText = new Parser().Parse(path);
 		
+		List<Game> gameList = new Execute().ExecuteLog(parsedText);
+			
 	}
 }
