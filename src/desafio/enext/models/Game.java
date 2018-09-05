@@ -1,17 +1,26 @@
 package desafio.enext.models;
 
-import java.util.Dictionary;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Game {
 	
 	public int TotalKills;
 	public List<String> Players;
-	public Dictionary<String, Integer> Kills;
+	public Map<String, Integer> Kills;
+	
+	public Game()
+	{
+		TotalKills = 0;
+		Players = new ArrayList<String>();
+		Kills = new HashMap<String, Integer>();
+	}
 	
 	public void AddKill(String killer, String killed)
 	{
-		if(killer == "<world>")
+		if(killer.equals("<world>"))
 		{
 			if(!Players.contains(killed))
 			{
