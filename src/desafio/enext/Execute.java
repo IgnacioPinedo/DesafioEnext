@@ -10,12 +10,16 @@ public class Execute {
 	{
 		List<Game> gameList = new ArrayList<>();
 		
-		Game game = new Game();
+		Game game = null;
 		
 		for (int x = 0; x < parsedText.length; x++) {
 			
 			if(parsedText[x].equals("InitGame:"))
+			{
+				if(game != null && !gameList.contains(game))
+					gameList.add(game);
 				game = new Game();
+			}
 			else if(parsedText[x].equals("Kill:"))
 			{
 				int y = x + 5;
@@ -45,9 +49,7 @@ public class Execute {
 				game.AddKill(killer, killed);
 			}
 			else if(parsedText[x].equals("ShutdownGame:"))
-			{
 				gameList.add(game);
-			}	
 		}
 		return gameList;
 	}

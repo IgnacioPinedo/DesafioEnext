@@ -15,5 +15,7 @@ public class Main {
 		List<Game> gameList = new Execute().ExecuteLog(parsedText);
 		
 		new Utils().PrintGames(gameList);
+		
+		//new SQL().UploadGameList(gameList);
 	}
 }
