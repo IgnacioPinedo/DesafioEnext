@@ -13,6 +13,7 @@ public class Main {
 		String[] parsedText = new Parser().Parse(path);
 		
 		List<Game> gameList = new Execute().ExecuteLog(parsedText);
-			
+		
+		new Utils().PrintGames(gameList);
 	}
 }

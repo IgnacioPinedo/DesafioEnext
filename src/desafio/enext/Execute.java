@@ -21,7 +21,6 @@ public class Execute {
 				int y = x + 5;
 				
 				String killer = parsedText[y-1];
-				String killed = "";
 				
 				while(!parsedText[y].equals("killed"))
 				{
@@ -29,6 +28,10 @@ public class Execute {
 					
 					y++;
 				}
+				
+				y++;
+
+				String killed = parsedText[y];
 				
 				y++;
 				
