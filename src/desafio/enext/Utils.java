@@ -32,6 +32,20 @@ public class Utils {
 		}
 	}
 	
+	public void PrintGuns(List<Game> gameList)
+	{
+		for (int x = 0; x < gameList.size(); x++) 
+		{
+			Game game = gameList.get(x);
+			
+			int gameHash = game.hashCode();
+			
+			Map<String, Integer> ordedGuns = OrderKills(game.GunKills);
+			
+			PrintGunLine(gameHash, ordedGuns);
+		}
+	}
+	
     private Map<String, Integer> OrderKills(Map<String, Integer> kills) {
 
         List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(kills.entrySet());
@@ -62,6 +76,19 @@ public class Utils {
 		
 		for (Map.Entry<String, Integer> entry : kills.entrySet()) {
 			System.out.println(" Player : " + entry.getKey() + " Kills : " + entry.getValue());
+		}
+
+		System.out.println();
+	}
+
+	private void PrintGunLine(int gameHash, Map<String, Integer> guns)
+	{
+		System.out.println("------------------------------------");
+		System.out.println(" GameHash: " + gameHash);
+		System.out.println();
+		
+		for (Map.Entry<String, Integer> entry : guns.entrySet()) {
+			System.out.println(" Guns : " + entry.getKey() + " Kills : " + entry.getValue());
 		}
 
 		System.out.println();

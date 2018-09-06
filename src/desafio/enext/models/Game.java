@@ -56,7 +56,7 @@ public class Game {
 			GunKills.put(gun, 0);
 		}
 		
-		int gunKills = GunKills.get(gun);
+		int gunKills = GunKills.get(gun) + 1;
 		
 		GunKills.remove(gun);
 		
