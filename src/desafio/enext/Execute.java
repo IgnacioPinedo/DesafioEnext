@@ -46,7 +46,11 @@ public class Execute {
 					y++;
 				}
 				
-				game.AddKill(killer, killed);
+				String gun = parsedText[y+1];
+				
+				
+				game.AddKill(killer, killed, gun);
+				
 			}
 			else if(parsedText[x].equals("ShutdownGame:"))
 				gameList.add(game);

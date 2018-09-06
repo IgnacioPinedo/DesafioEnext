@@ -10,15 +10,17 @@ public class Game {
 	public int TotalKills;
 	public List<String> Players;
 	public Map<String, Integer> Kills;
+	public Map<String, Integer> GunKills;
 	
 	public Game()
 	{
 		TotalKills = 0;
 		Players = new ArrayList<String>();
 		Kills = new HashMap<String, Integer>();
+		GunKills = new HashMap<String, Integer>();
 	}
 	
-	public void AddKill(String killer, String killed)
+	public void AddKill(String killer, String killed, String gun)
 	{
 		if(killer.equals("<world>"))
 		{
@@ -49,6 +51,17 @@ public class Game {
 			Kills.put(killer, kills);
 		}
 		
+		if(!GunKills.containsKey(gun))
+		{
+			GunKills.put(gun, 0);
+		}
+		
+		int gunKills = GunKills.get(gun);
+		
+		GunKills.remove(gun);
+		
+		GunKills.put(gun, gunKills);
+				
 		TotalKills++;
 	}
 }
